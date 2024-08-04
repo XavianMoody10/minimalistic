@@ -1,25 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 .hamburger-icon {
   height: 30px;
   width: 25px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-}
-.hamburger-icon__line {
-  height: 2px;
-  width: 100%;
-  background-color: black;
+
+  &__line {
+    height: 2px;
+    width: 100%;
+    background-color: black;
+  }
 }
 
 .hamburger-icon__top-line--animation {
   animation: top-line 0.3s 0.2s forwards;
 }
-
 .hamburger-icon__middle-line--animation {
   animation: middle-line 0.3s forwards;
 }
-
 .hamburger-icon__bottom-line--animation {
   animation: bottom-line 0.3s 0.2s forwards;
 }
@@ -27,11 +25,9 @@
 .hamburger-icon__top-line--animation-reverse {
   animation: top-line-reverse 0.3s forwards;
 }
-
 .hamburger-icon__middle-line--animation-reverse {
   animation: middle-line-reverse 0.3s 0.2s forwards;
 }
-
 .hamburger-icon__bottom-line--animation-reverse {
   animation: bottom-line-reverse 0.3s forwards;
 }
@@ -40,91 +36,78 @@
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(8px);
   }
+
   100% {
     transform: translateY(8px) rotate(45deg);
   }
 }
+
 @keyframes middle-line {
   0% {
     opacity: 1;
     transform: translateX(0);
   }
+
   100% {
     opacity: 0;
     transform: translateX(8px);
   }
 }
+
 @keyframes bottom-line {
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-8px);
   }
+
   100% {
     transform: translateY(-8px) rotate(-45deg);
   }
 }
+
 @keyframes top-line-reverse {
   0% {
     transform: translateY(8px) rotate(45deg);
   }
+
   50% {
     transform: translateY(8px) rotate(0deg);
   }
+
   100% {
     transform: translateY(0);
   }
 }
+
 @keyframes middle-line-reverse {
   0% {
     opacity: 0;
     transform: translateX(8px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
   }
 }
+
 @keyframes bottom-line-reverse {
   0% {
     transform: translateY(-8px) rotate(-45deg);
   }
+
   50% {
     transform: translateY(-8px) rotate(0deg);
   }
+
   100% {
     transform: translateY(0);
   }
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
-}
-
-.header {
-  padding: 15px 0;
-  background-color: white;
-}
-.header__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 90%;
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
-/*# sourceMappingURL=styles.css.map */
