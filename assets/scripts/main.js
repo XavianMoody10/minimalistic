@@ -45,11 +45,24 @@ function toggleHamburgerMenu() {
     if (isOpen) {
       addOpenClasses();
       removeCloseClasses();
+      toggleMobileNavigation(isOpen);
     } else {
       removeOpenClasses();
       addCloseClasses();
+      toggleMobileNavigation(isOpen);
     }
   });
+}
+
+// Toggle Mobile Navigation
+function toggleMobileNavigation(bool) {
+  const mobileVavigation = document.querySelector(".mobile-navigation");
+
+  if (bool) {
+    mobileVavigation.style.transform = `translateX(0px)`;
+  } else {
+    mobileVavigation.style.transform = `translateX(-100%)`;
+  }
 }
 
 toggleHamburgerMenu();

@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  z-index: 10;
 }
 .hamburger-icon__line {
   height: 2px;
@@ -13,7 +14,7 @@
 }
 
 .hamburger-icon__top-line--animation {
-  animation: top-line 0.3s 0.2s forwards;
+  animation: top-line 0.3s 0.3s forwards;
 }
 
 .hamburger-icon__middle-line--animation {
@@ -21,7 +22,7 @@
 }
 
 .hamburger-icon__bottom-line--animation {
-  animation: bottom-line 0.3s 0.2s forwards;
+  animation: bottom-line 0.3s 0.3s forwards;
 }
 
 .hamburger-icon__top-line--animation-reverse {
@@ -29,7 +30,7 @@
 }
 
 .hamburger-icon__middle-line--animation-reverse {
-  animation: middle-line-reverse 0.3s 0.2s forwards;
+  animation: middle-line-reverse 0.3s 0.3s forwards;
 }
 
 .hamburger-icon__bottom-line--animation-reverse {
@@ -38,12 +39,14 @@
 
 @keyframes top-line {
   0% {
+    background-color: black;
     transform: translateY(0);
   }
   50% {
     transform: translateY(8px);
   }
   100% {
+    background-color: white;
     transform: translateY(8px) rotate(45deg);
   }
 }
@@ -59,23 +62,27 @@
 }
 @keyframes bottom-line {
   0% {
+    background-color: black;
     transform: translateY(0);
   }
   50% {
     transform: translateY(-8px);
   }
   100% {
+    background-color: white;
     transform: translateY(-8px) rotate(-45deg);
   }
 }
 @keyframes top-line-reverse {
   0% {
+    background-color: white;
     transform: translateY(8px) rotate(45deg);
   }
   50% {
     transform: translateY(8px) rotate(0deg);
   }
   100% {
+    background-color: black;
     transform: translateY(0);
   }
 }
@@ -91,13 +98,48 @@
 }
 @keyframes bottom-line-reverse {
   0% {
+    background-color: white;
     transform: translateY(-8px) rotate(-45deg);
   }
   50% {
     transform: translateY(-8px) rotate(0deg);
   }
   100% {
+    background-color: black;
     transform: translateY(0);
+  }
+}
+@media (min-width: 640px) {
+  @keyframes top-line {
+    0% {
+      background-color: black;
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(8px);
+    }
+    100% {
+      background-color: #285e67;
+      transform: translateY(8px) rotate(45deg);
+    }
+  }
+  @keyframes bottom-line {
+    0% {
+      background-color: black;
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+    100% {
+      background-color: #285e67;
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+}
+@media (min-width: 1024px) {
+  .hamburger-icon {
+    display: none;
   }
 }
 * {
@@ -114,6 +156,10 @@ ul {
   list-style: none;
 }
 
+.text--poppins {
+  font-family: "Poppins", sans-serif;
+}
+
 .header {
   padding: 15px 0;
   background-color: white;
@@ -125,6 +171,88 @@ ul {
   width: 90%;
   max-width: 1300px;
   margin: 0 auto;
+}
+
+.mobile-navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: #285e67;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-100%);
+  transition-duration: 0.5s;
+}
+
+.mobile-navigation-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  height: 100%;
+}
+.mobile-navigation-list__anchor {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.desktop-navigation {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .mobile-navigation {
+    max-width: 300px;
+  }
+}
+@media (min-width: 768px) {
+  .header {
+    padding: 25px 0;
+  }
+}
+@media (min-width: 1024px) {
+  .header {
+    padding: 35px 0;
+  }
+  .mobile-navigation {
+    display: none;
+  }
+  .desktop-navigation {
+    display: block;
+  }
+  .desktop-navigation-list {
+    display: flex;
+    gap: 35px;
+  }
+  .desktop-navigation-list__anchor {
+    color: black;
+    border-bottom: 2px solid white;
+  }
+  .desktop-navigation-list__anchor:hover {
+    transition-duration: 0.3s;
+    border-color: #285e67;
+    color: #285e67;
+  }
+}
+@media (min-width: 320px) and (max-width: 740px) and (orientation: landscape) {
+  .mobile-navigation {
+    width: 100%;
+    overflow-y: scroll;
+    height: 500px;
+  }
+  .mobile-navigation-list {
+    min-height: 800px;
+  }
+}
+@media (min-width: 1280px) {
+  .header-logo__logo {
+    width: 90px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

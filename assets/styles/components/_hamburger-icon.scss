@@ -1,9 +1,12 @@
+@use "../abstracts/abstracts" as *;
+
 .hamburger-icon {
   height: 30px;
   width: 25px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  z-index: 10;
 
   &__line {
     height: 2px;
@@ -13,20 +16,20 @@
 }
 
 .hamburger-icon__top-line--animation {
-  animation: top-line 0.3s 0.2s forwards;
+  animation: top-line 0.3s 0.3s forwards;
 }
 .hamburger-icon__middle-line--animation {
   animation: middle-line 0.3s forwards;
 }
 .hamburger-icon__bottom-line--animation {
-  animation: bottom-line 0.3s 0.2s forwards;
+  animation: bottom-line 0.3s 0.3s forwards;
 }
 
 .hamburger-icon__top-line--animation-reverse {
   animation: top-line-reverse 0.3s forwards;
 }
 .hamburger-icon__middle-line--animation-reverse {
-  animation: middle-line-reverse 0.3s 0.2s forwards;
+  animation: middle-line-reverse 0.3s 0.3s forwards;
 }
 .hamburger-icon__bottom-line--animation-reverse {
   animation: bottom-line-reverse 0.3s forwards;
@@ -34,6 +37,7 @@
 
 @keyframes top-line {
   0% {
+    background-color: black;
     transform: translateY(0);
   }
 
@@ -42,6 +46,7 @@
   }
 
   100% {
+    background-color: white;
     transform: translateY(8px) rotate(45deg);
   }
 }
@@ -60,6 +65,7 @@
 
 @keyframes bottom-line {
   0% {
+    background-color: black;
     transform: translateY(0);
   }
 
@@ -68,12 +74,14 @@
   }
 
   100% {
+    background-color: white;
     transform: translateY(-8px) rotate(-45deg);
   }
 }
 
 @keyframes top-line-reverse {
   0% {
+    background-color: white;
     transform: translateY(8px) rotate(45deg);
   }
 
@@ -82,6 +90,7 @@
   }
 
   100% {
+    background-color: black;
     transform: translateY(0);
   }
 }
@@ -100,6 +109,7 @@
 
 @keyframes bottom-line-reverse {
   0% {
+    background-color: white;
     transform: translateY(-8px) rotate(-45deg);
   }
 
@@ -108,6 +118,47 @@
   }
 
   100% {
+    background-color: black;
     transform: translateY(0);
+  }
+}
+
+@media (min-width: 640px) {
+  @keyframes top-line {
+    0% {
+      background-color: black;
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(8px);
+    }
+
+    100% {
+      background-color: $green-color;
+      transform: translateY(8px) rotate(45deg);
+    }
+  }
+
+  @keyframes bottom-line {
+    0% {
+      background-color: black;
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-8px);
+    }
+
+    100% {
+      background-color: $green-color;
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .hamburger-icon {
+    display: none;
   }
 }
