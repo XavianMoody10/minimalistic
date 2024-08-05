@@ -65,4 +65,27 @@ function toggleMobileNavigation(bool) {
   }
 }
 
+// Buttons
+function greenButtonAnimation() {
+  const buttons = document.querySelectorAll(".btn--green");
+  const buttonInners = document.querySelectorAll(
+    ".btn--green .btn--green__inner"
+  );
+
+  buttons.forEach((b, i) => {
+    b.addEventListener("mouseover", (e) => {
+      buttonInners[i].style.transform = "translateX(0%)";
+      b.style.color = "white";
+    });
+  });
+
+  buttons.forEach((b, i) => {
+    b.addEventListener("mouseleave", (e) => {
+      buttonInners[i].style.transform = "translateX(-100%)";
+      b.style.color = "#285e67";
+    });
+  });
+}
+
 toggleHamburgerMenu();
+greenButtonAnimation();
