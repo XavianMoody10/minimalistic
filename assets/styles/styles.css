@@ -320,7 +320,7 @@ ul {
   }
 }
 .hero {
-  padding-top: 100px;
+  padding-top: 150px;
   width: 90%;
   max-width: 1400px;
   margin: 0 auto;
@@ -376,7 +376,7 @@ ul {
 }
 @media (min-width: 1024px) {
   .hero {
-    padding-top: 120px;
+    padding-top: 180px;
   }
   .hero-introduction {
     max-width: none;
