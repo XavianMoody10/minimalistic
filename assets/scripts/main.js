@@ -87,6 +87,7 @@ function greenButtonAnimation() {
   });
 }
 
+// Initiate smooth scrolling using luxyJS
 function smoothScrolling() {
   luxy.init();
 }
