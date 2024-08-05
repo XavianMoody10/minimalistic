@@ -156,20 +156,19 @@ ul {
   list-style: none;
 }
 
-.text--poppins {
-  font-family: "Poppins", sans-serif;
-}
-
 .header {
   padding: 15px 0;
   background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 .header__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 90%;
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -252,6 +251,127 @@ ul {
 @media (min-width: 1280px) {
   .header-logo__logo {
     width: 90px;
+  }
+}
+.text--poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+.main {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero {
+  padding-top: 100px;
+}
+
+.hero-introduction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin: 0 auto;
+}
+.hero-introduction__heading {
+  font-size: 2.5rem;
+  text-align: center;
+}
+.hero-introduction__summary {
+  text-align: center;
+}
+.hero-introduction__join-now-btn {
+  background-color: #285e67;
+  color: white;
+  padding: 15px 0;
+  width: 80%;
+  max-width: 270px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-radius: 30px;
+}
+
+.hero-images {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+.hero-images__image {
+  width: 100%;
+}
+.hero-images__image img {
+  object-fit: cover;
+  height: 320px;
+  border-radius: 20px;
+}
+
+@media (min-width: 640px) {
+  .hero-introduction {
+    max-width: 576px;
+  }
+}
+@media (min-width: 768px) {
+  .hero-introduction {
+    max-width: none;
+  }
+  .hero-introduction__heading {
+    font-size: 3.5rem;
+  }
+  .hero-introduction__summary {
+    font-size: 1.1rem;
+  }
+  .hero-images {
+    flex-direction: row;
+  }
+  .hero-images__image img {
+    border-radius: 30px;
+    object-fit: cover;
+  }
+}
+@media (min-width: 1024px) {
+  .hero {
+    padding-top: 120px;
+  }
+  .hero-introduction {
+    max-width: none;
+  }
+  .hero-introduction__heading {
+    font-size: 4.3rem;
+  }
+  .hero-introduction__summary {
+    font-size: 1.2rem;
+    width: 85%;
+  }
+  .hero-images {
+    gap: 50px;
+  }
+  .hero-images__image img {
+    border-radius: 15px;
+    height: 400px;
+  }
+}
+@media (min-width: 1200px) {
+  .hero {
+    padding-top: 170px;
+  }
+  .hero-introduction {
+    max-width: 1080px;
+  }
+}
+@media (min-width: 1500px) {
+  .hero {
+    padding-top: 200px;
+  }
+  .hero-introduction {
+    max-width: none;
+  }
+  .hero-images {
+    gap: 70px;
   }
 }
 
