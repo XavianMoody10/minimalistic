@@ -11,6 +11,38 @@
   font-family: $poppins-font;
 }
 
+.text--xlarge {
+  font-size: 2.5rem;
+}
+
+@media (min-width: 768) {
+  .text--xlarge {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text--xlarge {
+    font-size: 4.3rem;
+  }
+}
+
+.text--small {
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .text--small {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text--small {
+    font-size: 1.2rem;
+  }
+}
+
 .main {
   width: 90%;
   max-width: 1400px;
@@ -29,7 +61,6 @@
   margin: 0 auto;
 
   &__heading {
-    font-size: 2.5rem;
     text-align: center;
   }
 
@@ -66,14 +97,6 @@
 @media (min-width: 768px) {
   .hero-introduction {
     max-width: none;
-
-    &__heading {
-      font-size: 3.5rem;
-    }
-
-    &__summary {
-      font-size: 1.1rem;
-    }
   }
 
   .hero-images {
@@ -92,14 +115,6 @@
   }
   .hero-introduction {
     max-width: none;
-  }
-  .hero-introduction__heading {
-    font-size: 4.3rem;
-  }
-
-  .hero-introduction__summary {
-    font-size: 1.2rem;
-    width: 85%;
   }
 
   .hero-images {
