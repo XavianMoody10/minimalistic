@@ -310,7 +310,7 @@ ul {
 }
 
 .hero {
-  padding-top: 150px;
+  padding-top: 100px;
   width: 90%;
   max-width: 1400px;
   margin: 0 auto;
@@ -366,7 +366,7 @@ ul {
 }
 @media (min-width: 1024px) {
   .hero {
-    padding-top: 180px;
+    padding-top: 120px;
   }
   .hero-introduction {
     max-width: none;
@@ -461,6 +461,11 @@ ul {
   .wellbeing-details {
     flex-direction: row;
     justify-content: space-between;
+  }
+}
+@media (min-width: 768px) {
+  .wellbeing {
+    padding-top: 80px;
   }
 }
 @media (min-width: 1200px) {
