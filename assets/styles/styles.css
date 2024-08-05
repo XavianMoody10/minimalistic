@@ -318,14 +318,11 @@ ul {
     font-size: 1.2rem;
   }
 }
-.main {
+.hero {
+  padding-top: 100px;
   width: 90%;
   max-width: 1400px;
   margin: 0 auto;
-}
-
-.hero {
-  padding-top: 100px;
 }
 
 .hero-introduction {

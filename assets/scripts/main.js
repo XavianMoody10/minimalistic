@@ -65,7 +65,7 @@ function toggleMobileNavigation(bool) {
   }
 }
 
-// Buttons
+// Green button functionality
 function greenButtonAnimation() {
   const buttons = document.querySelectorAll(".btn--green");
   const buttonInners = document.querySelectorAll(
@@ -87,5 +87,10 @@ function greenButtonAnimation() {
   });
 }
 
+function smoothScrolling() {
+  luxy.init();
+}
+
 toggleHamburgerMenu();
 greenButtonAnimation();
+smoothScrolling();
