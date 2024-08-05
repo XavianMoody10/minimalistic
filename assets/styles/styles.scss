@@ -31,17 +31,17 @@
   font-size: 1rem;
 }
 
-@media (min-width: 768px) {
-  .text--small {
-    font-size: 1.1rem;
-  }
-}
+// @media (min-width: 768px) {
+//   .text--small {
+//     font-size: 1.1rem;
+//   }
+// }
 
-@media (min-width: 1024px) {
-  .text--small {
-    font-size: 1.2rem;
-  }
-}
+// @media (min-width: 1024px) {
+//   .text--small {
+//     font-size: 1.1rem;
+//   }
+// }
 
 .hero {
   padding-top: 150px;
@@ -148,3 +148,142 @@
 }
 
 // Wellbeing section
+.wellbeing {
+  padding-top: 40px;
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+.wellbeing-wrapper {
+  background-color: #f4f4f4;
+  padding: 30px 10px;
+  border-radius: 10px;
+}
+
+.wellbeing-subheading {
+  text-align: center;
+  font-size: 2.2rem;
+}
+
+.wellbeing-details {
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 530px;
+  margin-top: 30px;
+  gap: 30px;
+
+  &__text {
+    text-align: center;
+  }
+}
+
+.wellbeing-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 228px;
+
+  &__icon {
+    border-radius: 5px;
+    background-color: $green-color;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__text {
+    text-align: center;
+  }
+}
+
+.wellbeing-image {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .wellbeing-wrapper {
+    padding: 60px 10px;
+  }
+  .wellbeing-details {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1200px) {
+  .wellbeing-info {
+    margin-left: 8%;
+    max-width: 600px;
+  }
+
+  .wellbeing-wrapper {
+    position: relative;
+  }
+
+  .wellbeing-subheading {
+    text-align: start;
+    font-size: 3.2rem;
+  }
+
+  .wellbeing-details {
+    margin: 30px 0 0 0;
+    gap: 60px;
+    width: 100%;
+    max-width: none;
+  }
+
+  .wellbeing-details-container {
+    align-items: flex-start;
+    max-width: 250px;
+
+    &__text {
+      text-align: start;
+    }
+  }
+
+  .wellbeing-image {
+    display: block;
+    position: absolute;
+    right: 8%;
+    bottom: 0;
+  }
+
+  .wellbeing-image--infinite {
+    animation: wellbeing-image 7s forwards infinite linear;
+  }
+
+  @keyframes wellbeing-image {
+    0% {
+      transform: translateY(-50px);
+    }
+
+    50% {
+      transform: translateY(-30px);
+    }
+
+    100% {
+      transform: translateY(-50px);
+    }
+  }
+
+  .wellbeing-image-start {
+    animation: wellbeing-image-start 1s forwards ease-out;
+  }
+
+  @keyframes wellbeing-image-start {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(-50px);
+    }
+  }
+}

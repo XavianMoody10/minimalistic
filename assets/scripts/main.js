@@ -89,9 +89,35 @@ function greenButtonAnimation() {
 
 // Initiate smooth scrolling using luxyJS
 function smoothScrolling() {
-  luxy.init();
+  // luxy.init();
+}
+
+// Start animation for image in wellbeing section
+function animatedWellbeingImage() {
+  const wellbeingImage = document.querySelector(".wellbeing-image");
+  const wellBeingSection = document.querySelector(".wellbeing");
+  const options = { threshold: 0.8 };
+
+  function callback(entries, observer) {
+    [...entries].forEach((entry) => {
+      if (entry.isIntersecting) {
+        wellbeingImage.classList.add("wellbeing-image-start");
+        setTimeout(() => {
+          wellbeingImage.classList.remove("wellbeing-image-start");
+          wellbeingImage.classList.add("wellbeing-image--infinite");
+        }, 1000);
+
+        observer.unobserve(entry.target);
+      }
+    });
+  }
+
+  const observer = new IntersectionObserver(callback, options);
+
+  observer.observe(wellBeingSection);
 }
 
 toggleHamburgerMenu();
 greenButtonAnimation();
 smoothScrolling();
+animatedWellbeingImage();
