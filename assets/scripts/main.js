@@ -87,6 +87,28 @@ function greenButtonAnimation() {
   });
 }
 
+// White button functionality
+function whiteOulineButtonAnimation() {
+  const buttons = document.querySelectorAll(".btn--white-outline");
+  const buttonInners = document.querySelectorAll(
+    ".btn--white-outline .btn--white-outline__inner"
+  );
+
+  buttons.forEach((b, i) => {
+    b.addEventListener("mouseover", (e) => {
+      buttonInners[i].style.transform = "translateX(0%)";
+      b.style.color = "black";
+    });
+  });
+
+  buttons.forEach((b, i) => {
+    b.addEventListener("mouseleave", (e) => {
+      buttonInners[i].style.transform = "translateX(-100%)";
+      b.style.color = "white";
+    });
+  });
+}
+
 // Initiate smooth scrolling using luxyJS
 function smoothScrolling() {
   // luxy.init();
@@ -118,6 +140,7 @@ function animatedWellbeingImage() {
 }
 
 toggleHamburgerMenu();
+whiteOulineButtonAnimation();
 greenButtonAnimation();
 smoothScrolling();
 animatedWellbeingImage();
