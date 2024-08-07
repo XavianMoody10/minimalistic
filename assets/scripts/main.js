@@ -101,7 +101,7 @@ function whiteOulineButtonAnimation() {
 }
 
 // Reusable Intersection Observer function
-function IntersectionObserverResuable(sectionEl, animationCallback) {
+function intersectionObserverResuable(el, animationCallback) {
   const options = { threshold: 0.8 };
 
   function callback(entries, observer) {
@@ -115,7 +115,7 @@ function IntersectionObserverResuable(sectionEl, animationCallback) {
 
   const observer = new IntersectionObserver(callback, options);
 
-  observer.observe(sectionEl);
+  observer.observe(el);
 }
 
 // Start animation for image in the first wellbeing section
@@ -132,7 +132,7 @@ function animatedWellbeingImage() {
     }, 1000);
   }
 
-  IntersectionObserverResuable(wellbeingImage, callback);
+  intersectionObserverResuable(wellbeingImage, callback);
 }
 
 // Start animation for image in the second wellbeing section
@@ -145,7 +145,7 @@ function animatedWellbeingImage2() {
     wellbeingImage.classList.add("wellbeing-image--slide-in");
   }
 
-  IntersectionObserverResuable(wellbeingImage, callback);
+  intersectionObserverResuable(wellbeingImage, callback);
 }
 
 // Animated Produce section
@@ -158,7 +158,7 @@ function animateProduceSectionImage() {
     }
   }
 
-  IntersectionObserverResuable(produceImage, callback);
+  intersectionObserverResuable(produceImage, callback);
 }
 
 toggleHamburgerMenu();
