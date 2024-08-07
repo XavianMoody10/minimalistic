@@ -1,0 +1,45 @@
+@use "../abstracts/variables" as *;
+
+// Modifiers
+.text--poppins {
+  font-family: $poppins-font;
+}
+
+.text--xlarge {
+  font-size: 2.5rem;
+}
+
+@media (min-width: 768) {
+  .text--xlarge {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text--xlarge {
+    font-size: 4.3rem;
+  }
+}
+
+.text--small {
+  font-size: 1rem;
+}
+
+.text--medium {
+  font-size: 2.2rem;
+  line-height: 45px;
+  font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  .text--medium {
+    font-size: 2.6rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .text--medium {
+    font-size: 3.2rem;
+    line-height: 55px;
+  }
+}
