@@ -65,26 +65,30 @@ function toggleMobileNavigation(bool) {
   }
 }
 
+// Resuable function for button animation
+function buttonAnimation(buttonsEl, buttonsInnerEl, overColor, leaveColor) {
+  buttonsEl.forEach((b, i) => {
+    b.addEventListener("mouseover", (e) => {
+      buttonsInnerEl[i].style.transform = "translateX(0%)";
+      b.style.color = overColor;
+    });
+  });
+
+  buttonsEl.forEach((b, i) => {
+    b.addEventListener("mouseleave", (e) => {
+      buttonsInnerEl[i].style.transform = "translateX(-100%)";
+      b.style.color = leaveColor;
+    });
+  });
+}
+
 // Green button functionality
 function greenButtonAnimation() {
-  const buttons = document.querySelectorAll(".btn--green");
+  const buttons = document.querySelectorAll(".btn--green-outline");
   const buttonInners = document.querySelectorAll(
-    ".btn--green .btn--green__inner"
+    ".btn--green-outline .btn--green-outline__inner"
   );
-
-  buttons.forEach((b, i) => {
-    b.addEventListener("mouseover", (e) => {
-      buttonInners[i].style.transform = "translateX(0%)";
-      b.style.color = "white";
-    });
-  });
-
-  buttons.forEach((b, i) => {
-    b.addEventListener("mouseleave", (e) => {
-      buttonInners[i].style.transform = "translateX(-100%)";
-      b.style.color = "#285e67";
-    });
-  });
+  buttonAnimation(buttons, buttonInners, "white", "#285e67");
 }
 
 // White button functionality
@@ -93,42 +97,17 @@ function whiteOulineButtonAnimation() {
   const buttonInners = document.querySelectorAll(
     ".btn--white-outline .btn--white-outline__inner"
   );
-
-  buttons.forEach((b, i) => {
-    b.addEventListener("mouseover", (e) => {
-      buttonInners[i].style.transform = "translateX(0%)";
-      b.style.color = "black";
-    });
-  });
-
-  buttons.forEach((b, i) => {
-    b.addEventListener("mouseleave", (e) => {
-      buttonInners[i].style.transform = "translateX(-100%)";
-      b.style.color = "white";
-    });
-  });
+  buttonAnimation(buttons, buttonInners, "black", "white");
 }
 
-// Initiate smooth scrolling using luxyJS
-function smoothScrolling() {
-  // luxy.init();
-}
-
-// Start animation for image in wellbeing section
-function animatedWellbeingImage() {
-  const wellbeingImage = document.querySelector(".wellbeing-image");
-  const wellBeingSection = document.querySelector(".wellbeing");
+// Reusable Intersection Observer function
+function IntersectionObserverResuable(sectionEl, animationCallback) {
   const options = { threshold: 0.8 };
 
   function callback(entries, observer) {
     [...entries].forEach((entry) => {
       if (entry.isIntersecting) {
-        wellbeingImage.classList.add("wellbeing-image-start");
-        setTimeout(() => {
-          wellbeingImage.classList.remove("wellbeing-image-start");
-          wellbeingImage.classList.add("wellbeing-image--infinite");
-        }, 1000);
-
+        animationCallback();
         observer.unobserve(entry.target);
       }
     });
@@ -136,11 +115,55 @@ function animatedWellbeingImage() {
 
   const observer = new IntersectionObserver(callback, options);
 
-  observer.observe(wellBeingSection);
+  observer.observe(sectionEl);
+}
+
+// Start animation for image in the first wellbeing section
+function animatedWellbeingImage() {
+  const wellbeingImage = document.querySelector(
+    ".wellbeing:nth-of-type(2) .wellbeing-wrapper .wellbeing-image"
+  );
+
+  function callback() {
+    wellbeingImage.classList.add("wellbeing-image--go-up");
+    setTimeout(() => {
+      wellbeingImage.classList.remove("wellbeing-image--go-up");
+      wellbeingImage.classList.add("wellbeing-image--floating");
+    }, 1000);
+  }
+
+  IntersectionObserverResuable(wellbeingImage, callback);
+}
+
+// Start animation for image in the second wellbeing section
+function animatedWellbeingImage2() {
+  const wellbeingImage = document.querySelector(
+    ".wellbeing:nth-of-type(4) .wellbeing-wrapper .wellbeing-image"
+  );
+
+  function callback() {
+    wellbeingImage.classList.add("wellbeing-image--slide-in");
+  }
+
+  IntersectionObserverResuable(wellbeingImage, callback);
+}
+
+// Animated Produce section
+function animateProduceSectionImage() {
+  const produceImage = document.querySelector(".produce-image img");
+
+  function callback() {
+    if (screen.width >= 1024) {
+      produceImage.classList.add("image--turn-negative-180");
+    }
+  }
+
+  IntersectionObserverResuable(produceImage, callback);
 }
 
 toggleHamburgerMenu();
-whiteOulineButtonAnimation();
 greenButtonAnimation();
-smoothScrolling();
+whiteOulineButtonAnimation();
 animatedWellbeingImage();
+animatedWellbeingImage2();
+animateProduceSectionImage();

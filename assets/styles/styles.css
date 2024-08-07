@@ -142,7 +142,7 @@
     display: none;
   }
 }
-.btn--green {
+.btn--green-outline {
   border: 2px solid #285e67;
   border-radius: 35px;
   color: #285e67;
@@ -157,7 +157,7 @@
   overflow-x: hidden;
   background-color: transparent;
 }
-.btn--green__inner {
+.btn--green-outline__inner {
   position: absolute;
   top: 0;
   left: 0;
@@ -170,7 +170,7 @@
   transition-duration: 0.5s;
   z-index: 10;
 }
-.btn--green span {
+.btn--green-outline span {
   position: relative;
   z-index: 10;
 }
@@ -425,6 +425,81 @@ ul {
     line-height: 55px;
   }
 }
+.image--turn-negative-180 {
+  transform-origin: center;
+  opacity: 0;
+  animation: rotate-negative-180-deg 1s forwards;
+}
+
+.wellbeing-image--floating {
+  animation: floating 7s forwards infinite linear;
+}
+
+.wellbeing-image--go-up {
+  animation: go-up 1s forwards ease-out;
+}
+
+.wellbeing-image--slide-in {
+  animation: slide-in-from-left 1s forwards;
+}
+
+@keyframes slide-in-from-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes rotate-negative-180-deg {
+  0% {
+    opacity: 0;
+    transform: rotateY(-108deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+@keyframes rotate-positive-180-deg {
+  0% {
+    opacity: 0;
+    transform: rotateY(108deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+@keyframes blur-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes floating {
+  0% {
+    transform: translateY(-50px);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(-50px);
+  }
+}
+@keyframes go-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50px);
+  }
+}
 .hero {
   padding-top: 100px;
   width: 90%;
@@ -438,6 +513,7 @@ ul {
   align-items: center;
   gap: 30px;
   margin: 0 auto;
+  animation: blur-in 1s forwards ease-in-out;
 }
 .hero-introduction__heading {
   text-align: center;
@@ -490,9 +566,22 @@ ul {
   .hero-images {
     gap: 50px;
   }
+  .hero-images__image {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
   .hero-images__image img {
     border-radius: 15px;
     height: 400px;
+    opacity: 0;
+  }
+  .hero-images__image:nth-of-type(1) img {
+    transform-origin: right;
+    animation: rotate-negative-180-deg 1s 0.5s forwards ease-in-out;
+  }
+  .hero-images__image:nth-of-type(2) img {
+    transform-origin: left;
+    animation: rotate-positive-180-deg 1s 0.5s forwards ease-in-out;
   }
 }
 @media (min-width: 1200px) {
@@ -504,9 +593,6 @@ ul {
   }
 }
 @media (min-width: 1500px) {
-  .hero {
-    padding-top: 200px;
-  }
   .hero-introduction {
     max-width: none;
   }
@@ -622,6 +708,8 @@ ul {
   .wellbeing:nth-of-type(4) .wellbeing-wrapper .wellbeing-image {
     left: 8%;
     bottom: 80px;
+    opacity: 0;
+    transform: translateX(-50px);
   }
   .wellbeing:nth-of-type(4) .wellbeing-wrapper {
     display: flex;
@@ -629,31 +717,6 @@ ul {
   }
   .wellbeing:nth-of-type(4) .wellbeing-wrapper .wellbeing-info {
     margin: 0 8% 0 0;
-  }
-  .wellbeing-image--infinite {
-    animation: wellbeing-image 7s forwards infinite linear;
-  }
-  @keyframes wellbeing-image {
-    0% {
-      transform: translateY(-50px);
-    }
-    50% {
-      transform: translateY(-30px);
-    }
-    100% {
-      transform: translateY(-50px);
-    }
-  }
-  .wellbeing-image-start {
-    animation: wellbeing-image-start 1s forwards ease-out;
-  }
-  @keyframes wellbeing-image-start {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-50px);
-    }
   }
 }
 .produce {
@@ -728,6 +791,10 @@ ul {
   .produce-image {
     min-width: 400px;
     height: 530px;
+  }
+  .produce-image img {
+    opacity: 0;
+    transform: rotateY(-108deg);
   }
 }
 @media (min-width: 1200px) {
