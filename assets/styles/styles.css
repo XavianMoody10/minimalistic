@@ -143,14 +143,14 @@
   }
 }
 .btn--green-outline {
+  font-size: 1.4rem;
+  padding: 15px 0;
+  max-width: 270px;
   border: 2px solid #285e67;
   border-radius: 35px;
   color: #285e67;
-  font-size: 1.4rem;
   font-weight: 600;
-  padding: 15px 0;
   width: 80%;
-  max-width: 270px;
   text-align: center;
   transition-duration: 0.5s;
   position: relative;
@@ -176,14 +176,14 @@
 }
 
 .btn--white-outline {
+  font-size: 1rem;
+  padding: 10px 0;
+  max-width: 200px;
   border: 2px solid white;
   border-radius: 35px;
   color: white;
-  font-size: 1rem;
   font-weight: 600;
-  padding: 10px 0;
   width: 80%;
-  max-width: 200px;
   text-align: center;
   transition-duration: 0.5s;
   position: relative;
